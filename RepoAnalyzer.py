@@ -35,7 +35,7 @@ class RepoAnalyzer:
 
     # 0-50
     def score_dead_forks(self) -> int:
-        percentage = self.dead_forks / self.repos.totalCount
+        percentage = self.dead_forks / max(self.repos.totalCount, 1)
         return int((1 - percentage) * 50)
 
     # 0-50
@@ -45,7 +45,7 @@ class RepoAnalyzer:
 
     # 0-150
     def score_good_repos(self) -> int:
-        percentage = self.good_repos / self.repos.totalCount
+        percentage = self.good_repos / max(self.repos.totalCount, 1)
         return int((1 - percentage) * 150)
 
     def calculate_score(self) -> int:

@@ -31,7 +31,10 @@ def getREADME(user: AuthenticatedUser, user_name: str):
         text = file.lower()
         # print(file.decoded_content)
     except:
-        text = user.bio.lower()
+        text = user.bio
+        if text is None:
+            return 0
+        text = text.lower()
 
     bad_words = ["founder", "ceo", "non-profit", "high school", "metaverse", "dogecoin", "taiwan", "hong kong"]
 
