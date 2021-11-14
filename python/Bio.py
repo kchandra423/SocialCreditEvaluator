@@ -15,15 +15,13 @@ def follow_ratio(user: AuthenticatedUser) -> int:
         credit -= 50
     return credit
 
+def starring_repos(username: str) -> int:
+   starringRepos = g.get_user(username).get_starred().totalCount
 
-def starring_repos(user: AuthenticatedUser) -> int:
-    credit = 0
-    starringRepos = user.get_starred().totalCount
-
-    if starringRepos > 50:
-        credit -= 50
-    else:
-        credit += 50
+   if (starringRepos > 50):
+       credit =- 50
+   else:
+       credit =+ 50
 
     return credit
 
