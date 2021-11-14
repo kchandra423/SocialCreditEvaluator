@@ -51,11 +51,11 @@ class RepoAnalyzer:
         number = self.score_number_of_repos()
         dead = self.score_dead_forks()
         good = self.score_good_repos()
-        print(f'Contributor score :{contributors}\n'
-              f'Stars score :{stars}\n'
-              f'Repo amount score:{number}\n'
-              f'Dead Fork score:{dead}\n'
-              f'Good Repo score:{good}')
+        print(f'Contributor score: {contributors}\n'
+              f'Stars score: {stars}\n'
+              f'Repo amount score: {number}\n'
+              f'Dead Fork score: {dead}\n'
+              f'Good Repo score: {good}')
         return contributors + stars + number + dead + good
 
 
