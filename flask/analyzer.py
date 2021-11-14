@@ -1,12 +1,12 @@
 import os
 
-import dotenv
+from dotenv import load_dotenv
 from github import Github
 
 import Bio
 from RepoAnalyzer import RepoAnalyzer
 
-dotenv.load_dotenv()
+load_dotenv()
 TOKEN = os.getenv('TOKEN')
 g = Github(TOKEN)
 
