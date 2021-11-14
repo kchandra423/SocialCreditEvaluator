@@ -3,7 +3,6 @@ import math
 from github.AuthenticatedUser import AuthenticatedUser
 from github.Repository import Repository
 from joblib import Parallel, delayed
-import multiprocessing as mp
 
 
 class RepoAnalyzer:
