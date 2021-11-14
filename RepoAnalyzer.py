@@ -14,8 +14,7 @@ class RepoAnalyzer:
         self.dead_forks: int = 0
         self.contributors: int = 0
 
-        Parallel(n_jobs=20)(delayed(self.do_the_thing)(repo) for repo in self.repos)
-
+        Parallel(n_jobs=10)(delayed(self.do_the_thing)(repo) for repo in self.repos)
 
     def do_the_thing(self, repo: Repository):
         print(f"Looking through... {repo.name}")
