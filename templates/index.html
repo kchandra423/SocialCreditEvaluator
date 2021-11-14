@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="{{ url_for('static', filename='stylesheets/style.css') }}">
+
+</head>
+
+<body>
+<form action="/request" method="POST">
+  <label for="username"></label><input
+            id="username"
+            name="username"
+            placeholder="username"
+            type="username"
+    />
+    <input
+            type="submit"
+    />
+</form>
+</body>
+</html> 
