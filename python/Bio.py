@@ -3,10 +3,6 @@ import os
 import requests 
 from dotenv import load_dotenv
 
-load_dotenv()
-TOKEN = os.getenv('TOKEN')
-g = Github(TOKEN)
-
 credits2 = 0 # max is 400
 
 def follow_ratio(username: str) -> int:
