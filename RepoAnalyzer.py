@@ -2,6 +2,8 @@ import math
 
 from github.AuthenticatedUser import AuthenticatedUser
 from github.Repository import Repository
+from joblib import Parallel, delayed
+import multiprocessing as mp
 
 
 class RepoAnalyzer:
@@ -12,13 +14,16 @@ class RepoAnalyzer:
         self.stars: int = 0
         self.dead_forks: int = 0
         self.contributors: int = 0
-        for repo in self.repos:
-            repo: Repository
-            print(f"Looking through... {repo.name}")
-            self.contributors += repo.get_contributors().totalCount
-            self.good_repos += is_good_repo(repo)
-            self.dead_forks += is_dead_fork(repo)
-            self.stars += repo.stargazers_count
+
+        Parallel(n_jobs=self.repos.totalCount)(delayed(self.do_the_thing)(repo) for repo in self.repos)
+
+
+    def do_the_thing(self, repo: Repository):
+        print(f"Looking through... {repo.name}")
+        self.contributors += repo.get_contributors().totalCount
+        self.good_repos += is_good_repo(repo)
+        self.dead_forks += is_dead_fork(repo)
+        self.stars += repo.stargazers_count
 
     # 0-150
     def score_stars(self) -> int:
