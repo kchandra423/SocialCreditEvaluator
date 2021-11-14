@@ -28,16 +28,22 @@ def starring_repos(user: AuthenticatedUser) -> int:
     return credit
 
 
-def getREADME(user: AuthenticatedUser):
+def getREADME(user: AuthenticatedUser, user_name: str):
     credit = 0
-    repo = user.get_repo(user.name)
-    file = repo.get_readme()
+    repo = user.get_repo(user_name)
+    file = repo.get_readme().decoded_content.decode('utf8')
     file_lower = file.lower()
     # print(file.decoded_content)
-    bad_words = ["founder", "ceo", "non-profit", "high school", "metaverse", "dogecoin", "taiwan"]
-    for i in range:
-        if (bad_words[i] in file_lower):
+    bad_words = ["founder", "ceo", "non-profit", "high school", "metaverse", "dogecoin", "taiwan", "hong kong"]
+    #
+    # try:
+    #     raise Exception()
+    # except Exception as e:
+    #     print(e)
+
+    for i in range(len(bad_words)):
+        if bad_words[i] in file_lower:
             credit -= 100
-        else:
-            credit += 200
+
     return credit
+
