@@ -1,4 +1,4 @@
-
+from RepoAnalyzer import RepoAnalyzer
 from github import Github
 import os
 from dotenv import load_dotenv
@@ -10,7 +10,8 @@ g = Github(TOKEN)
 
 
 def main(user: str):
-    print(type(g.get_user().get_repos()))
+    scorer = RepoAnalyzer(usr=g.get_user(user))
+    print(scorer.calculate_score())
 
 
 if __name__ == "__main__":
