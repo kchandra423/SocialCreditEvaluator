@@ -18,7 +18,10 @@ class RepoAnalyzer:
 
     def do_the_thing(self, repo: Repository):
         print(f"Looking through... {repo.name}")
-        self.contributors += repo.get_contributors().totalCount
+        try:
+            self.contributors += repo.get_contributors().totalCount
+        except:
+            self.contributors = 0
         self.good_repos += is_good_repo(repo)
         self.dead_forks += is_dead_fork(repo)
         self.stars += repo.stargazers_count
