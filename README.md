@@ -29,3 +29,5 @@ Scores range from 0 - 1000 with a higher number indicating a better score
 "Bad" profiles
 
 ![Disapproved](assets/Disapproved.png)
+
+Guys this project is dogshit how did we even win
